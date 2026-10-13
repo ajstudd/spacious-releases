@@ -6,6 +6,26 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
     <link>https://ajstudd.github.io/spacious-releases/appcast.xml</link>
     <language>en</language>
     <item>
+      <title>Spacious 1.0.1</title>
+      <pubDate>Tue, 13 Oct 2026 11:07:06 GMT</pubDate>
+      <sparkle:version>12</sparkle:version>
+      <sparkle:shortVersionString>1.0.1</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[<h3>Added</h3>
+<ul>
+<li>Settings button at the bottom of the sidebar (Settings is also Spacious › Settings…, ⌘,).
+<li>Shortcuts to the setting that matters, where it matters: &quot;Schedule…&quot; for automatic cleaning at the end of Clean Up, the safety snapshot switch in Review when something is deleted permanently, and &quot;Turn on notifications&quot; and &quot;Check for Updates…&quot; in the menu-bar panel.
+</ul>
+<h3>Fixed</h3>
+<ul>
+<li>Test browsers and other tool downloads (Playwright, Puppeteer, Cypress, Codex runtimes, DotSlash, Electron) were listed under App caches as &quot;rebuilds automatically&quot;, so Recommended could delete them permanently and break the tools that need them. They now have their own &quot;Downloaded tools &amp; browsers&quot; group (Your call), go to the Trash, and the command that brings them back (e.g. <code>npx playwright install</code>) is shown in Review and History.
+<li>Re-downloadable caches inside safe groups (uv, pip, npx, VS Code extension installers) go to the Trash in Recommended instead of being deleted permanently.
+<li>History records each item the moment it&#x27;s removed, so a cleanup cut short by quitting, a crash or a restart shows up as &quot;Interrupted&quot; on the next launch. Spacious asks before quitting mid-cleanup.
+<li>The 1.0.0 notes said Spacious works entirely offline; it goes online only when you check for updates.
+</ul>]]></description>
+      <enclosure url="https://ajstudd.github.io/spacious-releases/downloads/Spacious-1.0.1.dmg" length="6193236" type="application/octet-stream" sparkle:edSignature="niDLwk3PzCFvtcjLPwhaIyEoQjcGbcrGWMoUAVrl4uoVWxMIlfcNYYYqDBw3158bIMF+ZGpUw0WwaLGTtoh0Dg=="></enclosure>
+    </item>
+    <item>
       <title>Spacious 1.0.0</title>
       <pubDate>Mon, 12 Oct 2026 10:34:36 GMT</pubDate>
       <sparkle:version>11</sparkle:version>
@@ -41,6 +61,6 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
     </item>
   </channel>
 </rss><!-- sparkle-signatures:
-edSignature: 8YnJoKOlWJKjsT57BYqW+WNrwTCgeHsB9gVvdAWsFvLJVCmJAK7Td01i047sveSFv8vHuNf431eRlLS5MCUgCg==
-length: 4550
+edSignature: MytLFnG+x3p6fTrQ8pw90W8y2oDalBCnRusAknzIg5Y/2J+d1N3c15VKHtWRWQQji0jzbDzhrhDuuRxtnEXFAg==
+length: 6581
 -->
