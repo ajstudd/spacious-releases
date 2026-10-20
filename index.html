@@ -35,7 +35,7 @@
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; overflow-x: clip; }
-main, .hero { overflow-x: clip; }
+main { overflow-x: clip; }
 body {
   background: var(--bg);
   color: var(--ink);
@@ -277,6 +277,9 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
 footer a:hover { color: var(--ink); }
 
 /* ---------- Responsive ---------- */
+@media (max-width: 1240px) {
+  .float-card.a { left: 0; } .float-card.b { right: 0; top: 72%; }
+}
 @media (max-width: 980px) {
   .hero { grid-template-columns: minmax(0,1fr); text-align: center; padding-top: 130px; }
   .lede { margin-inline: auto; } .cta { justify-content: center; }
@@ -632,8 +635,12 @@ footer a:hover { color: var(--ink); }
     const chip = document.createElement("div"); chip.className = "chip";
     chip.innerHTML = `<i style="background:${color}"></i>${name} <em>${size}</em>`;
     stage.appendChild(chip);
-    const angle = (-90 + (i * 47) % 360) * Math.PI / 180, r0 = stage.offsetWidth * .42, r1 = stage.offsetWidth * .78;
-    const x0 = Math.cos(angle) * r0, y0 = Math.sin(angle) * r0, x1 = Math.cos(angle) * r1, y1 = Math.sin(angle) * r1 - 30;
+    const angle = (-90 + (i * 47) % 360) * Math.PI / 180, r0 = stage.offsetWidth * .42, r1 = stage.offsetWidth * .64;
+    // Keep each chip's whole path inside the window (chips are up to ~180px wide).
+    const box = stage.getBoundingClientRect(), cx = box.left + box.width / 2;
+    const room = Math.min(cx - 100, innerWidth - cx - 100);
+    const clampX = x => Math.max(-room, Math.min(room, x));
+    const x0 = clampX(Math.cos(angle) * r0), y0 = Math.sin(angle) * r0, x1 = clampX(Math.cos(angle) * r1), y1 = Math.sin(angle) * r1 - 30;
     chip.animate([
       { transform: `translate(calc(-50% + ${x0}px), calc(-50% + ${y0}px)) scale(.6)`, opacity: 0 },
       { transform: `translate(calc(-50% + ${(x0 + x1) / 2}px), calc(-50% + ${(y0 + y1) / 2}px)) scale(1)`, opacity: 1, offset: .35 },
